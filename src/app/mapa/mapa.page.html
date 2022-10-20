@@ -1,0 +1,17 @@
+<ion-header class="headermapa" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mapa</ion-title>
+    <ion-buttons slots="start">
+    <ion-icon id="btnbackhome" [routerLink]="['/movilizacion']" style="font-size: 30px; color: white;" name="arrow-back-circle-outline"></ion-icon>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d13295.016824374656!2d-71.60800070186751!3d-33.58573053353015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgoogle%20maps!5e0!3m2!1ses-419!2scl!4v1662337940382!5m2!1ses-419!2scl"
+    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</ion-content>

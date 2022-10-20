@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  #botonmenu{
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 8px;
+    color: white;
+  }
+  
+  #btncreaterute{
+    margin-top: 10px;
+    margin-left: 130px;
+    --background: #C2185B;
+  }
+  
+  ion-toolbar{
+    --background: #C2185B;
+  }
+  
+  .headerhome{
+    display: flex;
+    justify-content: center;
+  }
+  
+  ion-content{
+    --background: #161616;
+  }
+  
+  .formularioxd{
+    margin: 10px;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 8px;
+    border: 5px #C2185B solid;
+    color: white;
+  }
+  ion-title{
+    text-align: center;
+    color: white;
+  }
+  
+  h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    color: white;
+  }
+  h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-bottom: 15px;
+  }
+  .campo{
+    margin-bottom: 8px;
+    border-radius: 5px;
+    width: 80%;
+  }
+  .opc{
+    margin-right: 15px;
+  }
+  .tome{
+    height: 76px;
+  }
+
+
+
+
+  mat-form-field{
+    --background: black;
+  }
+  .hora .example-full-width{
+    width: 80%;
+    background: black;
+  }
+  

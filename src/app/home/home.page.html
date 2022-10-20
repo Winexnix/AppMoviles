@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      RebU
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="contenido">
+    <div id="logo">
+      <img src="../../assets/Rebu.png" alt="">
+    </div>
+    <img id="carga" src="/assets/carga.png" alt="">
+    <mat-form-field>
+      <mat-label class="user">Usuario</mat-label>
+      <input [(ngModel)]="usuario" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="pass">Ingresa tu contraseña</mat-label>
+      <input [(ngModel)]="clave" matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div id="boton">
+      <div class="botons">
+        <button (click)="login()" mat-stroked-button color="accent">Iniciar Sesion <mat-icon fontIcon="login">
+          </mat-icon></button>
+      </div>
+      <div class="botons">
+        <button (click)="limpiar()" mat-stroked-button color="accent">Limpiar <mat-icon fontIcon="delete"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

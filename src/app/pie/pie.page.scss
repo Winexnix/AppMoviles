@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ion-content{
+    --background: #161616;
+
+}
+#barra{
+    width: 100%;
+    background-color: #C2185B;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 15px;
+}
+#publicaciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.post{
+
+    width: 90%;
+    background-color: #C2185B;
+    border: 7px black solid;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.post ul{
+    list-style: none;
+    padding-left: 10px;
+}
+.post button{
+    margin-top: 5px;
+    width: 80%;
+}
+
+.titulo{
+    text-align: center;
+}
+#principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+ion-toolbar{
+    --background: #C2185B;
+}
+#volver{
+    margin-left: 15px;
+    cursor: pointer;
+}
+.salida .asiento{
+    width: 100%;
+
+}
+.desplegable{
+    margin: 10% 10% 10% 10%;
+    background: #161616;
+}

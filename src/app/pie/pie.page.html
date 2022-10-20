@@ -1,0 +1,76 @@
+<!-- Menu Desplegable -->
+<ion-menu side="start" menuId="menu1" contentId="main">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="titulo">Filtro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list class="desplegable">
+      <mat-form-field class="salida" appearance="fill">
+        <mat-label>Lugar de Salida</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+            {{fruit.name}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="Lugar de Salida" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="asiento">
+        <mat-label>Asientos</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let asiento of asientos" [value]="asiento.value">
+            {{asiento.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="hora">
+        <mat-label>Hora de Salida</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let hora of horas" [value]="hora.value">
+            {{hora.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button (click)="cerrar()" mat-raised-button color="primary">Aplicar Filtros</button>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<!-- Menu Toolbar -->
+<ion-header>
+  <ion-toolbar id="principal">
+    <ion-menu-button slot="end">
+      <mat-icon aria-hidden="false" aria-label="Example tune icon" fontIcon="tune"></mat-icon>
+    </ion-menu-button>
+    <ion-title class="titulo">Pasajero</ion-title>
+    <ion-buttons id="volver" slot="start">
+      <mat-icon (click)="backhome()" fontIcon="undo"></mat-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- Contenido de la pagina -->
+<ion-content>
+  <div id="publicaciones">
+
+    <div class="post">
+      <ul *ngFor="let viaje of viajes">
+        <li>Nombre: {{viaje.nombre}} </li>
+        <li>Desde: Plaza Centenario</li>
+        <li>Hora: 17:00</li>
+        <li>Asientos Disponibles: 2</li>
+        <li>Descripcion: Voy a estar frente Duoc Uc</li>
+      </ul>
+      <button mat-raised-button color="basic">Tomar Viaje</button>
+    </div>
+  </div>
+</ion-content>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+
+

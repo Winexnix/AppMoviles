@@ -1,0 +1,17 @@
+ion-toolbar{
+   --background: #C2185B;
+}
+ion-title{
+    text-align: center;
+}
+#conten{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+#conten h1{
+    background: #C2185B;
+    padding: 20px;
+    border-radius: 15px;
+}
