@@ -58,8 +58,8 @@
 <ion-content>
   <div id="publicaciones">
 
-    <div class="post">
-      <ul *ngFor="let viaje of viajes">
+    <div *ngFor="let viaje of viajes" class="post">
+      <ul >
         <li>Nombre: {{viaje.nombre}} </li>
         <li>Desde: Plaza Centenario</li>
         <li>Hora: 17:00</li>
