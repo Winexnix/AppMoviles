@@ -19,11 +19,11 @@ interface hora {
 })
 export class MovilizacionPage implements OnInit {
   private db: SQLiteObject
-  nombre : string
-  salida : string
-  hora : string
-  asiento : number
-  descripcion : string
+  nombre: string
+  salida: string
+  hora: string
+  asiento: number
+  descripcion: string
 
 
 
@@ -37,24 +37,14 @@ export class MovilizacionPage implements OnInit {
     }).then((db: SQLiteObject) => {
       console.log("base creada")
       this.db = db
-      
+
     })
   }
 
-  backhome() {
-    this.router.navigate(['/home'])
-  }
-  crearRuta(){
-    this.db.executeSql("insert into rutas values (?,?,?,?,?)", [this.nombre,this.salida,this.hora,this.asiento,this.descripcion])
+  crearRuta() {
+    this.db.executeSql("insert into rutas values (?,?,?,?,?)", [this.nombre, this.salida, this.hora, this.asiento, this.descripcion])
     console.log('Datos insertados')
   }
-
-
-  openMenu() {
-    this.menu.open();
-  }
-
-
   ngOnInit() {
   }
   horas: hora[] = [

@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MenuController } from '@ionic/angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
-export interface Fruit {
-  name: string;
-}
-interface asiento {
-  value: string;
-  viewValue: string;
-}
+
+
 
 interface hora {
   value: string;
@@ -46,7 +39,7 @@ export class PiePage implements OnInit {
 
 
   listar(){
-    this.db.executeSql("select * from rutas",[])
+    this.db.executeSql("select * from rutas where asiento > 0",[])
     .then((data) =>{
       this.viajes = []
       for (let i = 0; i < data.rows.length; i++){
@@ -58,50 +51,13 @@ export class PiePage implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  cerrar() {
+  filtro() {
     this.menu.close()
   }
-  backhome() {
-    this.router.navigate(['/home'])
-  }
+  
   ngOnInit() {
   }
-  addOnBlur = true;
-  readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [];
 
-  add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-
-    // Add our fruit
-    if (value) {
-      this.fruits.push({ name: value });
-    }
-
-    // Clear the input value
-    event.chipInput!.clear();
-  }
-
-  remove(fruit: Fruit): void {
-    const index = this.fruits.indexOf(fruit);
-
-    if (index >= 0) {
-      this.fruits.splice(index, 1);
-    }
-  }
 
   horas: hora[] = [
     { value: '1', viewValue: '06:00 am' },
@@ -126,13 +82,4 @@ export class PiePage implements OnInit {
     { value: '20', viewValue: '24:00 am' }
   ];
 
-
-  asientos: asiento[] = [
-    { value: '1', viewValue: '1' },
-    { value: '2', viewValue: '2' },
-    { value: '3', viewValue: '3' },
-    { value: '4', viewValue: '4' },
-    { value: '5', viewValue: '5' },
-    { value: '6', viewValue: '6' }
-  ];
 }

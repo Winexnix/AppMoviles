@@ -1,17 +1,6 @@
-
-<!-- Toolbar -->
-<ion-header class="headerhome" [translucent]="true">
-  <ion-toolbar class="tome">
-    <ion-title>RebU</ion-title>
-    <ion-icon id="botonmenu" (click)="openMenu()" style="font-size: 30px;" name="list-outline"></ion-icon>
-    <ion-buttons id="volver" slot="start">
-      <mat-icon (click)="backhome()" fontIcon="undo"></mat-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <!-- Menu desplegable -->
-<ion-menu menuId="main-menu" side="start" menuId="first" contentId="main">
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-menu side="start" menuId="menu1" contentId="main">
   <ion-header>
     <ion-toolbar>
       <ion-title class="titulo">Opciones</ion-title>
@@ -20,69 +9,85 @@
   <ion-content>
 
     <ion-list>
-
       <ion-item [routerLink]="['/correo']">
         <ion-icon class="opc" name="mail-outline" slot="start"></ion-icon>
-      <ion-label>Mensajes</ion-label>
-    </ion-item>
+        <ion-label>Mensajes</ion-label>
+      </ion-item>
 
-    <ion-item [routerLink]="['/soporte']">
-      <ion-icon class="opc" name="hammer-outline" slot="start"></ion-icon>
-      <ion-label>Soporte</ion-label>
-    </ion-item>
+      <ion-item [routerLink]="['/soporte']">
+        <ion-icon class="opc" name="hammer-outline" slot="start"></ion-icon>
+        <ion-label>Soporte</ion-label>
+      </ion-item>
 
-    <ion-item [routerLink]="['/configuracion']">
-      <ion-icon class="opc" name="settings-outline" slot="start"></ion-icon>
-      <ion-label>Configuración</ion-label>
-    </ion-item>
+      <ion-item [routerLink]="['/configuracion']">
+        <ion-icon class="opc" name="settings-outline" slot="start"></ion-icon>
+        <ion-label>Configuración</ion-label>
+      </ion-item>
 
     </ion-list>
   </ion-content>
 
 </ion-menu>
-<ion-router-outlet id="main"></ion-router-outlet>
 
-<!-- Contenido -->
-<ion-content [fullscreen]="true">
+<!-- Fin Desplegable -->
+
+
+<!-- Menu Toolbar -->
+<ion-header>
+  <ion-toolbar id="principal">
+    <ion-menu-button slot="end">
+      <mat-icon aria-hidden="false" aria-label="Example tune icon" fontIcon="tune"></mat-icon>
+    </ion-menu-button>
+    <ion-title class="titulo">Chofer</ion-title>
+    <ion-buttons id="volver" slot="start">
+      <mat-icon style="margin-left: 5px;" [routerLink]="['/home']" fontIcon="undo"></mat-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- Fin Toolbar -->
+
+
+<!-- Contenido de la pagina -->
+<ion-content>
 
   <h1 class="titulobienvenido">¡Bienvenido!</h1>
 
-    <div class="formularioxd">
-      
-      <h2 class="tituloform">Crear ruta</h2>
+  <div class="formularioxd">
 
-      <mat-form-field appearance="fill">
-        <mat-label>Nombre</mat-label>
-        <input [(ngModel)]="nombre" matInput>
-      </mat-form-field>
-    
+    <h2 class="tituloform">Crear ruta</h2>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Lugar de Salida</mat-label>
-        <input [(ngModel)]="salida" matInput>
-      </mat-form-field>
-    
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input [(ngModel)]="nombre" matInput>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill" class="hora">
-        <mat-label>Hora de Salida</mat-label>
-        <mat-select [(ngModel)]="hora" >
-          <mat-option *ngFor="let hora of horas" [value]="hora.value">
-            {{hora.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      
 
-      <mat-form-field appearance="fill">
-        <mat-label>Asientos</mat-label>
-        <input [(ngModel)]="asiento" matInput>
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Lugar de Salida</mat-label>
+      <input [(ngModel)]="salida" matInput>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Descripcion</mat-label>
-        <input [(ngModel)]="descripcion" matInput>
-      </mat-form-field>
-    
+
+    <mat-form-field appearance="fill" class="hora">
+      <mat-label>Hora de Salida</mat-label>
+      <mat-select [(ngModel)]="hora">
+        <mat-option *ngFor="let hora of horas" [value]="hora.value">
+          {{hora.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Asientos</mat-label>
+      <input [(ngModel)]="asiento" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripcion</mat-label>
+      <input [(ngModel)]="descripcion" matInput>
+    </mat-form-field>
+
 
     <ion-button id="btncreaterute" (click)="crearRuta()" [routerLink]="['/mapa']"> Crear ruta </ion-button>
 
@@ -90,3 +95,5 @@
 
 
 </ion-content>
+<!-- Fin de Contenido de la pagina -->
+
