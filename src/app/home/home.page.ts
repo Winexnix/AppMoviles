@@ -29,7 +29,11 @@ export class HomePage {
       console.log("base creada")
       this.db = db
       db.executeSql("create table user(usuario varchar(12), clave varchar(12))", [])
-      db.executeSql("create table rutas(nombre varchar(20), salida varchar(50), hora varchar(60), asiento number, descripcion varchar(60))", [])
+      db.executeSql("create table rutas(nombre varchar(20), salida varchar(50), hora varchar(60), asiento number, descripcion varchar(60), rut varchar(25))", [])
+      
+      db.executeSql("insert into rutas values(?,?,?,?,?,?)",['Juan','Duoc Uc', '16:00 am', '10','Estare Frente de la Centenario','20880577-0'])
+      db.executeSql("insert into rutas values(?,?,?,?,?,?)",['Martin','Plaza', '15:00 am', '10','Estare Frente de la Centenario','20880577-1'])
+      db.executeSql("insert into rutas values(?,?,?,?,?,?)",['William','Cancha', '17:00 am', '10','Estare Frente de la Centenario','20880577-2'])
       db.executeSql("insert into user values (?,?)", ['chofer', '1234'])
       db.executeSql("insert into user values (?,?)", ['pasajero', '1234'])
     })

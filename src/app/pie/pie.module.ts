@@ -15,9 +15,10 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
-  imports: [
+  imports: [PipesModule,
     CommonModule,
     FormsModule,
     IonicModule,

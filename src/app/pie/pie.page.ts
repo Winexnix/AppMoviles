@@ -5,7 +5,6 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
 
 
-
 interface hora {
   value: string;
   viewValue: string;
@@ -19,7 +18,7 @@ interface hora {
 })
 export class PiePage implements OnInit {
   private db: SQLiteObject
-
+  salida = ""
   viajes = []
   constructor(private router: Router, private menu: MenuController, private sqlite: SQLite) {
     this.sqlite.create({
@@ -46,12 +45,10 @@ export class PiePage implements OnInit {
         this.viajes.push(data.rows.item(i))
       }
     })
-      
-
   }
+ 
 
-
-  filtro() {
+  cerrar() {
     this.menu.close()
   }
   

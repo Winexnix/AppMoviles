@@ -10,11 +10,11 @@
     <ion-list class="desplegable">
       <mat-form-field appearance="fill">
         <mat-label>Lugar de Salida</mat-label>
-        <input [(ngModel)]="salida" matInput>
+        <input  [(ngModel)]="salida" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Asientos</mat-label>
-        <input [(ngModel)]="asiento" matInput>
+        <mat-label>Nombre Conductor</mat-label>
+        <input [(ngModel)]="salida" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill" class="hora">
         <mat-label>Hora de Salida</mat-label>
@@ -24,7 +24,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button class="bmenud" (click)="filtro()" mat-raised-button color="primary">Aplicar Filtros</button>
+      <button class="bmenud" (click)="cerrar()" mat-raised-button color="primary">Cerrar</button>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -50,7 +50,7 @@
 <ion-content>
   <div id="publicaciones">
 
-    <div *ngFor="let viaje of viajes" class="post">
+    <div *ngFor="let viaje of viajes | filtro: salida" class="post">
       <div id="info">
         <ul>
           <li>Nombre: {{viaje.nombre}} </li>
@@ -60,7 +60,7 @@
           <li>Descripcion: {{viaje.descripcion}}</li>
         </ul>
         <div id="boton">
-          <button mat-raised-button color="basic">Tomar Viaje</button>
+          <button  mat-raised-button color="basic">Tomar Viaje</button>
         </div>
       </div>
     </div>
