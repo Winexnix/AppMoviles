@@ -23,7 +23,7 @@ ion-content{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: 1px green solid;
+    
 }
 .post{
 
@@ -36,13 +36,13 @@ ion-content{
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px green solid;
+   
     
 }
 .post ul{
     list-style: none;
     padding-left: 10px;
-    border: 1px rgb(0, 204, 255) solid;
+    
 }
 #boton{
     display: flex;
@@ -52,11 +52,11 @@ ion-content{
 #boton button{
     margin-top: 5px;
     width: 80%;
-    border: 1px rgb(255, 238, 0) solid;
+    
 }
 #info{
     width: 100%;
-    border: 1px rgb(255, 255, 255) solid;
+    
 }
 .titulo{
     text-align: center;
@@ -84,4 +84,13 @@ ion-toolbar{
 }
 .bmenud{
     padding: 10px;
+}
+#buscar{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#buscar h1{
+    margin-bottom: 15px;
 }

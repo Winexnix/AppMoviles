@@ -18,7 +18,7 @@ interface hora {
 })
 export class PiePage implements OnInit {
   private db: SQLiteObject
-  salida = ""
+  
   viajes = []
   constructor(private router: Router, private menu: MenuController, private sqlite: SQLite) {
     this.sqlite.create({

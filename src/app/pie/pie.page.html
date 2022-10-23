@@ -1,36 +1,3 @@
-<!-- Menu Desplegable -->
-<ion-router-outlet id="main"></ion-router-outlet>
-<ion-menu side="start" menuId="menu1" contentId="main">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title class="titulo">Filtro</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list class="desplegable">
-      <mat-form-field appearance="fill">
-        <mat-label>Lugar de Salida</mat-label>
-        <input  [(ngModel)]="salida" matInput>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Nombre Conductor</mat-label>
-        <input [(ngModel)]="salida" matInput>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="hora">
-        <mat-label>Hora de Salida</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let hora of horas" [value]="hora.value">
-            {{hora.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button class="bmenud" (click)="cerrar()" mat-raised-button color="primary">Cerrar</button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-<!-- Fin Desplegable -->
-
-
 <!-- Menu Toolbar -->
 <ion-header>
   <ion-toolbar id="principal">
@@ -50,6 +17,14 @@
 <ion-content>
   <div id="publicaciones">
 
+    <div  id="buscar">
+      <h1>Buscar</h1>
+      <mat-form-field appearance="fill">
+        <mat-label>Desde o Hacia</mat-label>
+        <input [(ngModel)]="salida" matInput>
+      </mat-form-field>
+    </div>
+
     <div *ngFor="let viaje of viajes | filtro: salida" class="post">
       <div id="info">
         <ul>
@@ -60,7 +35,7 @@
           <li>Descripcion: {{viaje.descripcion}}</li>
         </ul>
         <div id="boton">
-          <button  mat-raised-button color="basic">Tomar Viaje</button>
+          <button mat-raised-button color="basic">Tomar Viaje</button>
         </div>
       </div>
     </div>
