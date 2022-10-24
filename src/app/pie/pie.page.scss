@@ -50,7 +50,8 @@ ion-content{
     align-items: center;
 }
 #boton button{
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 80%;
     
 }
@@ -60,6 +61,7 @@ ion-content{
 }
 .titulo{
     text-align: center;
+    margin-right: 10px;
 }
 #principal{
     display: flex;
@@ -72,6 +74,10 @@ ion-toolbar{
 }
 #volver{
     margin-left: 15px;
+    cursor: pointer;
+}
+#cerrar{
+    margin-right: 15px;
     cursor: pointer;
 }
 .salida .asiento{

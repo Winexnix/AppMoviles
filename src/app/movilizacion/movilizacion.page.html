@@ -35,13 +35,17 @@
 <!-- Menu Toolbar -->
 <ion-header>
   <ion-toolbar id="principal">
+
     <ion-menu-button slot="end">
       <mat-icon aria-hidden="false" aria-label="Example tune icon" fontIcon="tune"></mat-icon>
     </ion-menu-button>
+
     <ion-title class="titulo">Chofer</ion-title>
+
     <ion-buttons id="volver" slot="start">
-      <mat-icon style="margin-left: 5px;" [routerLink]="['/home']" fontIcon="undo"></mat-icon>
+      <mat-icon [routerLink]="['/home']" fontIcon="undo"></mat-icon>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 <!-- Fin Toolbar -->
@@ -50,50 +54,61 @@
 <!-- Contenido de la pagina -->
 <ion-content>
 
-  <h1 class="titulobienvenido">¡Bienvenido!</h1>
-
-  <div class="formularioxd">
-
-    <h2 class="tituloform">Crear ruta</h2>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre</mat-label>
-      <input [(ngModel)]="nombre" matInput>
-    </mat-form-field>
 
 
-    <mat-form-field appearance="fill">
-      <mat-label>Lugar de Salida</mat-label>
-      <input [(ngModel)]="salida" matInput>
-    </mat-form-field>
+  <div id="contenedor">
+
+    
 
 
-    <mat-form-field appearance="fill" class="hora">
-      <mat-label>Hora de Salida</mat-label>
-      <mat-select [(ngModel)]="hora">
-        <mat-option *ngFor="let hora of horas" [value]="hora.value">
-          {{hora.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div id="formulario">
+      <h2 class="tituloform">Crear ruta</h2>
+      <div class="campos">
+        <mat-form-field appearance="fill" class="camp">
+          <mat-label>Nombre</mat-label>
+          <input [(ngModel)]="nombre" matInput>
+        </mat-form-field>
+      </div>
+      <div class="campos">
+        <mat-form-field appearance="fill" class="camp">
+          <mat-label>Desde</mat-label>
+          <input [(ngModel)]="desde" matInput>
+        </mat-form-field>
+      </div>
+      <div class="campos">
+        <mat-form-field appearance="fill" class="camp">
+          <mat-label>Hacia</mat-label>
+          <input [(ngModel)]="hacia" matInput>
+        </mat-form-field>
+      </div>
+      <div class="campos">
+        <mat-form-field appearance="fill" class="camp">
+          <mat-label>Hora de Salida</mat-label>
+          <mat-select [(ngModel)]="hora">
+            <mat-option *ngFor="let hora of horas" [value]="hora.value">
+              {{hora.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
+      </div>
+      <div class="campos">
+        <mat-form-field appearance="fill" class="camp">
+          <mat-label>Asientos</mat-label>
+          <input [(ngModel)]="asiento" matInput>
+        </mat-form-field>
+      </div>
+      <div class="campos">
+        <mat-form-field appearance="fill" class="camp">
+          <mat-label>Descripcion</mat-label>
+          <input [(ngModel)]="descripcion" matInput>
+        </mat-form-field>
+      </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Asientos</mat-label>
-      <input [(ngModel)]="asiento" matInput>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Descripcion</mat-label>
-      <input [(ngModel)]="descripcion" matInput>
-    </mat-form-field>
-
-
-    <ion-button id="btncreaterute" (click)="crearRuta()" [routerLink]="['/mapa']"> Crear ruta </ion-button>
-
+      <ion-button id="boton" (click)="crearRuta()" > Crear ruta </ion-button>
+    </div>
   </div>
 
 
 </ion-content>
 <!-- Fin de Contenido de la pagina -->
-

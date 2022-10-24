@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
 
@@ -20,22 +20,23 @@ export class PiePage implements OnInit {
   private db: SQLiteObject
   
   viajes = []
-  constructor(private router: Router, private menu: MenuController, private sqlite: SQLite) {
+  constructor(private router: Router, private menu: MenuController, private sqlite: SQLite, private alert: AlertController) {
     this.sqlite.create({
       name: "data.db",
       location: "default"
-
     }).then((db: SQLiteObject) => {
       this.db = db
-      
     })
 
 
   }
   ionViewDidEnter(){
     this.listar()
+   
   }
-
+  tomar(){
+    this.info("Viaje Tomado Correctamente")
+  }
 
   listar(){
     this.db.executeSql("select * from rutas where asiento > 0",[])
@@ -47,6 +48,15 @@ export class PiePage implements OnInit {
     })
   }
  
+  async info(texto: string) {
+    const alert = await this.alert.create({
+      header: texto,
+      message: '',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
 
   cerrar() {
     this.menu.close()

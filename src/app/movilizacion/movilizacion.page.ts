@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 
 
 
@@ -20,16 +20,18 @@ interface hora {
 export class MovilizacionPage implements OnInit {
   private db: SQLiteObject
   nombre: string
-  salida: string
+  desde: string
   hora: string
   asiento: number
   descripcion: string
+  hacia:string
 
 
 
 
 
-  constructor(private router: Router, private menu: MenuController, private sqlite: SQLite) {
+
+  constructor(private router: Router, private menu: MenuController, private sqlite: SQLite, private alert: AlertController) {
     this.sqlite.create({
       name: "data.db",
       location: "default"
@@ -41,9 +43,21 @@ export class MovilizacionPage implements OnInit {
     })
   }
 
+  async info(texto: string) {
+    const alert = await this.alert.create({
+      header: texto,
+      message: '',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+
   crearRuta() {
-    this.db.executeSql("insert into rutas values (?,?,?,?,?)", [this.nombre, this.salida, this.hora, this.asiento, this.descripcion])
-    console.log('Datos insertados')
+    this.db.executeSql("insert into rutas values (?,?,?,?,?,?)", [this.nombre, this.desde, this.hora, this.asiento, this.descripcion, this.hacia])
+    this.info('Viaje Registrado Correctamente')
+    
   }
   ngOnInit() {
   }
