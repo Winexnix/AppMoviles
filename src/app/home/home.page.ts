@@ -28,12 +28,12 @@ export class HomePage {
     }).then((db: SQLiteObject) => {
       console.log("base creada")
       this.db = db
+      db.executeSql("create table historial(idviaje integer, chofer varchar(20), desde varchar(30),hacia varchar(30), hora varchar(30))", [])
       db.executeSql("create table user(usuario varchar(12), clave varchar(12))", [])
-      db.executeSql("create table rutas(nombre varchar(20), desde varchar(50), hora varchar(60), asiento number, descripcion varchar(60), hacia varchar(50))", [])
-      
-      db.executeSql("insert into rutas values(?,?,?,?,?,?)",['Juan','Duoc Uc', '16:00 am', '10','Estare Frente de la Centenario','San Antonio'])
-      db.executeSql("insert into rutas values(?,?,?,?,?,?)",['Martin','Plaza', '15:00 am', '10','Estare Frente de la Centenario','12 de Octubre'])
-      db.executeSql("insert into rutas values(?,?,?,?,?,?)",['William','Cancha', '17:00 am', '10','Estare Frente de la Centenario','Codigua'])
+      db.executeSql("create table rutas(idviaje INTEGER PRIMARY KEY AUTOINCREMENT,nombre varchar(20), desde varchar(50), hora varchar(60), asiento number, descripcion varchar(60), hacia varchar(50))", [])
+      db.executeSql("insert into rutas values(null,?,?,?,?,?,?)",['Juan','Duoc Uc', '16:00 am', '10','Estare Frente de la Centenario','San Antonio'])
+      db.executeSql("insert into rutas values(null,?,?,?,?,?,?)",['William','Centenario', '16:00 am', '10','Estare Frente de la Centenario','Codigua'])
+      db.executeSql("insert into rutas values(null,?,?,?,?,?,?)",['Martiin','Hospital', '16:00 am', '10','Estare Frente de la Centenario','3 Poniente'])
       db.executeSql("insert into user values (?,?)", ['chofer', '1234'])
       db.executeSql("insert into user values (?,?)", ['pasajero', '1234'])
     })

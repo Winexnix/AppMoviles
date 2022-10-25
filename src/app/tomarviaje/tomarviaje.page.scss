@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.titulo{
+    text-align: center;
+    margin-right: 10px;
+}
+#principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+ion-toolbar{
+    --background: #C2185B;
+}
+#volver{
+    margin-left: 15px;
+    cursor: pointer;
+}
+#cerrar{
+    margin-right: 15px;
+    cursor: pointer;
+}

@@ -40,10 +40,10 @@
           <li>Descripcion: {{viaje.descripcion}}</li>
         </ul>
         <div id="boton">
-          <button mat-raised-button color="basic" (click)="tomar()">Tomar Viaje</button>
+          <button mat-raised-button color="basic" (click)="tomar(viaje.idviaje , viaje.nombre , viaje.desde , viaje.hacia , viaje.hora)">Tomar Viaje</button>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </ion-content>
 <!-- Fin de Contenido de la pagina -->

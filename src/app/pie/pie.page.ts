@@ -18,7 +18,7 @@ interface hora {
 })
 export class PiePage implements OnInit {
   private db: SQLiteObject
-  
+  historial = []
   viajes = []
   constructor(private router: Router, private menu: MenuController, private sqlite: SQLite, private alert: AlertController) {
     this.sqlite.create({
@@ -26,16 +26,20 @@ export class PiePage implements OnInit {
       location: "default"
     }).then((db: SQLiteObject) => {
       this.db = db
+
     })
 
 
   }
   ionViewDidEnter(){
     this.listar()
-   
+    this.listo()
   }
-  tomar(){
-    this.info("Viaje Tomado Correctamente")
+  tomar(idviaje : string, chofer : string, desde :string , hacia : string , hora : string){
+    this.db.executeSql("insert into historial values (?,?,?,?,?)", [ idviaje,chofer,desde,hacia,hora ])
+    this.db.executeSql("update rutas set asiento = asiento - 1 where idviaje = ?",[idviaje])
+    this.listar()
+    this.router.navigate(['/tomarviaje']);
   }
 
   listar(){
@@ -44,6 +48,15 @@ export class PiePage implements OnInit {
       this.viajes = []
       for (let i = 0; i < data.rows.length; i++){
         this.viajes.push(data.rows.item(i))
+      }
+    })
+  }
+  listo(){
+    this.db.executeSql("select * from historial ",[])
+    .then((data) =>{
+      this.historial = []
+      for (let i = 0; i < data.rows.length; i++){
+        this.historial.push(data.rows.item(i))
       }
     })
   }

@@ -1,5 +1,27 @@
+<!-- Menu Toolbar -->
+<ion-header>
+  <ion-toolbar id="principal">
+
+    <ion-title class="titulo">Tomar Viaje</ion-title>
 
 
+
+  </ion-toolbar>
+</ion-header>
+<!-- Fin Toolbar -->
 <ion-content>
-  <button (click)="cancelar()">Cancelar</button>
+  <div *ngFor="let hi of historial" class="post">
+    <div id="info">
+      <ul>
+        <li>Nombre: {{hi.chofer}} </li>
+        <li>Desde: {{hi.desde}}</li>
+        <li>Hacia: {{hi.hacia}}</li>
+        <li>Hora: {{hi.hora}}</li>
+
+      </ul>
+      <div id="boton">
+        <button mat-raised-button color="basic" (click)="cancelarviaje(hi.idviaje)">Cancelar Viaje</button>
+      </div>
+    </div>
+  </div>
 </ion-content>
